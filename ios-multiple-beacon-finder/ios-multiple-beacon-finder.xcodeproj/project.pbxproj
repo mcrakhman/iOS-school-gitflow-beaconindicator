@@ -12,6 +12,7 @@
 		9EFE7B881DFCC57B00B93884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE7B861DFCC57B00B93884 /* Main.storyboard */; };
 		9EFE7B8A1DFCC57B00B93884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE7B891DFCC57B00B93884 /* Assets.xcassets */; };
 		9EFE7B8D1DFCC57B00B93884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE7B8B1DFCC57B00B93884 /* LaunchScreen.storyboard */; };
+		9EFE7B961DFCC82F00B93884 /* Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B951DFCC82F00B93884 /* Beacons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9EFE7B891DFCC57B00B93884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EFE7B8C1DFCC57B00B93884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EFE7B8E1DFCC57B00B93884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EFE7B951DFCC82F00B93884 /* Beacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beacons.swift; path = Beacons/Beacons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		9EFE7B811DFCC57B00B93884 /* ios-multiple-beacon-finder */ = {
 			isa = PBXGroup;
 			children = (
+				9EFE7B941DFCC7DF00B93884 /* Beacons */,
 				9EFE7B821DFCC57B00B93884 /* AppDelegate.swift */,
 				9EFE7B841DFCC57B00B93884 /* ViewController.swift */,
 				9EFE7B861DFCC57B00B93884 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				9EFE7B8E1DFCC57B00B93884 /* Info.plist */,
 			);
 			path = "ios-multiple-beacon-finder";
+			sourceTree = "<group>";
+		};
+		9EFE7B941DFCC7DF00B93884 /* Beacons */ = {
+			isa = PBXGroup;
+			children = (
+				9EFE7B951DFCC82F00B93884 /* Beacons.swift */,
+			);
+			name = Beacons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			files = (
 				9EFE7B851DFCC57B00B93884 /* ViewController.swift in Sources */,
 				9EFE7B831DFCC57B00B93884 /* AppDelegate.swift in Sources */,
+				9EFE7B961DFCC82F00B93884 /* Beacons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
