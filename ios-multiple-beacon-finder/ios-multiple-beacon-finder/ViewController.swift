@@ -18,6 +18,8 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     var accuracyScene: AccuracyScene!
     var locationService: LocationServiceImplementation!
     
+    let minAccuracy = 5.0
+    
     lazy var sphere: SCNSphere = {
         let hydrogenAtom = SCNSphere(radius: 1.20)
         hydrogenAtom.firstMaterial!.diffuse.contents = UIColor.green
@@ -81,6 +83,14 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
         scene.rootNode.addChildNode(geometryNode)
     }
     
+    func colorForSphere(accuracy: Double) -> UIColor {
+        let hue = (minAccuracy - accuracy) / minAccuracy * 0.20
+        return UIColor(hue: CGFloat(hue),
+                       saturation: 1.0,
+                       brightness: 1.0,
+                       alpha: 1.0)
+    }
+    
     // MARK: SCNSceneRendererDelegate
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {}
@@ -89,6 +99,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     
     func didLocateClosest(_ beacon: CLBeacon) {
         accuracyScene.accuracy = Double(Int(beacon.accuracy * 100)) / 100
+        sphere.firstMaterial?.diffuse.contents = colorForSphere(accuracy: beacon.accuracy)
     }
 }
 
