@@ -14,6 +14,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
     @IBOutlet weak var sceneView: SCNView!
     var scene: SCNScene!
     var cameraNode: SCNNode!
+    var accuracyScene: AccuracyScene!
     
     lazy var sphere: SCNSphere = {
         let hydrogenAtom = SCNSphere(radius: 1.20)
@@ -43,8 +44,10 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     func setupScene() {
+        accuracyScene = AccuracyScene(size: view.bounds.size)
         scene = SCNScene()
         sceneView.scene = scene
+        sceneView.overlaySKScene = accuracyScene
     }
     
     func setupCamera() {
@@ -63,8 +66,8 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
     // MARK: SCNSceneRendererDelegate
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        sphere.radius = CGFloat(arc4random_uniform(9) + 1)
-        print(sphere.radius)
+       // sphere.radius = CGFloat(arc4random_uniform(9) + 1)
+       // print(sphere.radius)
     }
 }
 
