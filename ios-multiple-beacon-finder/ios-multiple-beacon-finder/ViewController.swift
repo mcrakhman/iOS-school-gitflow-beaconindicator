@@ -102,7 +102,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     }
     
     func sizeForSphere(accuracy: Double) -> CGFloat {
-        let multiplier = CGFloat(max((minAccuracy - accuracy) / minAccuracy, 0.0) * 2.5)
+        let multiplier = CGFloat(max((minAccuracy - accuracy) / minAccuracy, 0.0) * 2.3)
         
         return CGFloat(baseRadius) * (1 + multiplier)
     }
@@ -125,7 +125,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
         accuracyScene.accuracy = Double(Int(beacon.accuracy * 100)) / 100
         sphere.firstMaterial?.diffuse.contents = colorForSphere(accuracy: beacon.accuracy)
         SCNTransaction.begin()
-        SCNTransaction.animationDuration = 0.3
+        SCNTransaction.animationDuration = 0.35
         sphere.radius = sizeForSphere(accuracy: beacon.accuracy)
         SCNTransaction.commit()
     }
