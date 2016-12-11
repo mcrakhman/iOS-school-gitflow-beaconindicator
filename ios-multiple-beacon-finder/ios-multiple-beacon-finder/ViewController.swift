@@ -84,7 +84,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     }
     
     func colorForSphere(accuracy: Double) -> UIColor {
-        let hue = (minAccuracy - accuracy) / minAccuracy * 0.20
+        let hue = max((minAccuracy - accuracy) / minAccuracy * 0.20, 0.0)
         return UIColor(hue: CGFloat(hue),
                        saturation: 1.0,
                        brightness: 1.0,
