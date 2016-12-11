@@ -21,6 +21,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     var audioEngine: AudioEngine!
     
     let minAccuracy = 5.0
+    let baseRadius = 1.20
     
     lazy var sphere: SCNSphere = {
         let hydrogenAtom = SCNSphere(radius: 1.20)
@@ -75,6 +76,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     }
 
     func setupView() {
+        sceneView.isUserInteractionEnabled = false
         sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
     }
@@ -99,6 +101,12 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
         scene.rootNode.addChildNode(geometryNode)
     }
     
+    func sizeForSphere(accuracy: Double) -> CGFloat {
+        let multiplier = CGFloat(max((minAccuracy - accuracy) / minAccuracy, 0.0) * 2.5)
+        
+        return CGFloat(baseRadius) * (1 + multiplier)
+    }
+    
     func colorForSphere(accuracy: Double) -> UIColor {
         let hue = max((minAccuracy - accuracy) / minAccuracy * 0.20, 0.0)
         return UIColor(hue: CGFloat(hue),
@@ -116,6 +124,10 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     func didLocateClosest(_ beacon: CLBeacon) {
         accuracyScene.accuracy = Double(Int(beacon.accuracy * 100)) / 100
         sphere.firstMaterial?.diffuse.contents = colorForSphere(accuracy: beacon.accuracy)
+        SCNTransaction.begin()
+        SCNTransaction.animationDuration = 0.3
+        sphere.radius = sizeForSphere(accuracy: beacon.accuracy)
+        SCNTransaction.commit()
     }
 }
 
