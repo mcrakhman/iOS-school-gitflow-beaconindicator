@@ -26,7 +26,9 @@ class AudioEngine {
     }
     
     func playBeepSound () {
-        audioPlayer.currentTime = 0
-        audioPlayer.play()
+        DispatchQueue.global().async {
+            self.audioPlayer.currentTime = 0
+            self.audioPlayer.play()
+        }
     }
 }
