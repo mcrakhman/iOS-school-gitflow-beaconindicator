@@ -13,6 +13,10 @@
 		9EFE7B8A1DFCC57B00B93884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE7B891DFCC57B00B93884 /* Assets.xcassets */; };
 		9EFE7B8D1DFCC57B00B93884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE7B8B1DFCC57B00B93884 /* LaunchScreen.storyboard */; };
 		9EFE7BBF1DFDC13F00B93884 /* AccuracyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */; };
+		9EFE7B961DFCC82F00B93884 /* Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B951DFCC82F00B93884 /* Beacons.swift */; };
+		9EFE7B981DFCCBB000B93884 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B971DFCCBB000B93884 /* LocationService.swift */; };
+		9EFE7B9A1DFCCDCC00B93884 /* LocationServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B991DFCCDCC00B93884 /* LocationServiceDelegate.swift */; };
+		9EFE7B9C1DFCCE6F00B93884 /* LocationServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B9B1DFCCE6F00B93884 /* LocationServiceImplementation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		9EFE7B8C1DFCC57B00B93884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EFE7B8E1DFCC57B00B93884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccuracyScene.swift; path = AccuracyScene/AccuracyScene.swift; sourceTree = "<group>"; };
+		9EFE7B951DFCC82F00B93884 /* Beacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beacons.swift; path = Beacons/Beacons.swift; sourceTree = "<group>"; };
+		9EFE7B971DFCCBB000B93884 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Beacons/LocationService.swift; sourceTree = "<group>"; };
+		9EFE7B991DFCCDCC00B93884 /* LocationServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationServiceDelegate.swift; path = Beacons/LocationServiceDelegate.swift; sourceTree = "<group>"; };
+		9EFE7B9B1DFCCE6F00B93884 /* LocationServiceImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationServiceImplementation.swift; path = Beacons/LocationServiceImplementation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9EFE7BBD1DFDC12000B93884 /* AccuracyScene */,
+				9EFE7B941DFCC7DF00B93884 /* Beacons */,
 				9EFE7B821DFCC57B00B93884 /* AppDelegate.swift */,
 				9EFE7B841DFCC57B00B93884 /* ViewController.swift */,
 				9EFE7B861DFCC57B00B93884 /* Main.storyboard */,
@@ -73,6 +82,17 @@
 				9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */,
 			);
 			name = AccuracyScene;
+            sourceTree = "<group>";
+        };
+		9EFE7B941DFCC7DF00B93884 /* Beacons */ = {
+			isa = PBXGroup;
+			children = (
+				9EFE7B951DFCC82F00B93884 /* Beacons.swift */,
+				9EFE7B971DFCCBB000B93884 /* LocationService.swift */,
+				9EFE7B991DFCCDCC00B93884 /* LocationServiceDelegate.swift */,
+				9EFE7B9B1DFCCE6F00B93884 /* LocationServiceImplementation.swift */,
+			);
+			name = Beacons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +169,11 @@
 			files = (
 				9EFE7B851DFCC57B00B93884 /* ViewController.swift in Sources */,
 				9EFE7BBF1DFDC13F00B93884 /* AccuracyScene.swift in Sources */,
+				9EFE7B9A1DFCCDCC00B93884 /* LocationServiceDelegate.swift in Sources */,
 				9EFE7B831DFCC57B00B93884 /* AppDelegate.swift in Sources */,
+				9EFE7B981DFCCBB000B93884 /* LocationService.swift in Sources */,
+				9EFE7B9C1DFCCE6F00B93884 /* LocationServiceImplementation.swift in Sources */,
+				9EFE7B961DFCC82F00B93884 /* Beacons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
