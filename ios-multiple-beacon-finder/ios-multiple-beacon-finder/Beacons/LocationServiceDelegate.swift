@@ -9,6 +9,6 @@
 import Foundation
 import CoreLocation
 
-protocol LocationServiceDelegate {
+protocol LocationServiceDelegate: class {
     func didLocateClosest(_ beacon: CLBeacon)
 }

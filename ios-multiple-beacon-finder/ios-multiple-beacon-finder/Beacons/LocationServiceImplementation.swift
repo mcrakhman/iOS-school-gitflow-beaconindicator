@@ -13,11 +13,19 @@ class LocationServiceImplementation: NSObject, LocationService, CLLocationManage
     
     var beaconRegions: [CLBeaconRegion] = []
     let locationManager = CLLocationManager()
-    var delegate: LocationServiceDelegate?
+    weak var delegate: LocationServiceDelegate?
     
     override init() {
         super.init()
         locationManager.requestAlwaysAuthorization()
+        locationManager.delegate = self
+    }
+    
+    deinit {
+        for beaconRegion in beaconRegions {
+            locationManager.stopMonitoring(for: beaconRegion)
+            locationManager.stopRangingBeacons(in: beaconRegion)
+        }
     }
     
     func register(_ beacon: Beacon) {

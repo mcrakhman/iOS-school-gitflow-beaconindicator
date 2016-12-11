@@ -8,13 +8,15 @@
 
 import UIKit
 import SceneKit
+import CoreLocation
 
-class ViewController: UIViewController, SCNSceneRendererDelegate {
+class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServiceDelegate {
 
     @IBOutlet weak var sceneView: SCNView!
     var scene: SCNScene!
     var cameraNode: SCNNode!
     var accuracyScene: AccuracyScene!
+    var locationService: LocationServiceImplementation!
     
     lazy var sphere: SCNSphere = {
         let hydrogenAtom = SCNSphere(radius: 1.20)
@@ -32,10 +34,26 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
         
         sceneView.delegate = self
         sceneView.isPlaying = true
+        
+        setupServices()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Конфигурация
+    
+    func setupServices() {
+        locationService = LocationServiceImplementation()
+        
+        let beacon = Beacon(name: "MyBeacon",
+                            uuid: UUID(uuidString: "2F234454-CF6D-4A0F-ADF2-F4911BA9FFA7")!,
+                            majorValue: 3,
+                            minorValue: 3)
+        locationService.register(beacon)
+        
+        locationService.delegate = self
     }
 
     func setupView() {
@@ -65,9 +83,12 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
     
     // MARK: SCNSceneRendererDelegate
     
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-       // sphere.radius = CGFloat(arc4random_uniform(9) + 1)
-       // print(sphere.radius)
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {}
+    
+    // MARK: LocationServiceDelegate
+    
+    func didLocateClosest(_ beacon: CLBeacon) {
+        accuracyScene.accuracy = Double(Int(beacon.accuracy * 100)) / 100
     }
 }
 
