@@ -22,6 +22,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     
     let minAccuracy = 5.0
     let baseRadius = 1.20
+    let minTempo = 120.0
     
     lazy var sphere: SCNSphere = {
         let hydrogenAtom = SCNSphere(radius: 1.20)
@@ -101,6 +102,11 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
         scene.rootNode.addChildNode(geometryNode)
     }
     
+    func tempo(for accuracy: Double) -> Double {
+        let multiplier = max((minAccuracy - accuracy) / minAccuracy, 0.0)
+        return (1 + multiplier) * minTempo
+    }
+    
     func sizeForSphere(accuracy: Double) -> CGFloat {
         let multiplier = CGFloat(max((minAccuracy - accuracy) / minAccuracy, 0.0) * 2.3)
         
@@ -122,8 +128,14 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     // MARK: LocationServiceDelegate
     
     func didLocateClosest(_ beacon: CLBeacon) {
+        if beacon.accuracy < 0 {
+            return
+        }
+        
         accuracyScene.accuracy = Double(Int(beacon.accuracy * 100)) / 100
         sphere.firstMaterial?.diffuse.contents = colorForSphere(accuracy: beacon.accuracy)
+        tempoCounter.tempo = tempo(for: beacon.accuracy)
+        
         SCNTransaction.begin()
         SCNTransaction.animationDuration = 0.35
         sphere.radius = sizeForSphere(accuracy: beacon.accuracy)
