@@ -17,6 +17,8 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
     var cameraNode: SCNNode!
     var accuracyScene: AccuracyScene!
     var locationService: LocationServiceImplementation!
+    var tempoCounter: TempoCounter!
+    var audioEngine: AudioEngine!
     
     lazy var sphere: SCNSphere = {
         let hydrogenAtom = SCNSphere(radius: 1.20)
@@ -36,6 +38,8 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
         sceneView.isPlaying = true
         
         setupServices()
+        setupAudioEngine()
+        setupTempoCounter()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +58,18 @@ class ViewController: UIViewController, SCNSceneRendererDelegate, LocationServic
         locationService.register(beacon)
         
         locationService.delegate = self
+    }
+    
+    func setupAudioEngine() {
+        audioEngine = AudioEngine()
+    }
+    
+    func setupTempoCounter() {
+        tempoCounter = TempoCounter()
+        tempoCounter.addHandler { [weak self] in
+            self?.audioEngine.playBeepSound()
+        }
+        tempoCounter.start()
     }
 
     func setupView() {
