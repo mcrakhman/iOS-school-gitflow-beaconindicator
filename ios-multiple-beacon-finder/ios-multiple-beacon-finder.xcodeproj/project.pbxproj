@@ -17,6 +17,7 @@
 		9EFE7B9A1DFCCDCC00B93884 /* LocationServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B991DFCCDCC00B93884 /* LocationServiceDelegate.swift */; };
 		9EFE7B9C1DFCCE6F00B93884 /* LocationServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B9B1DFCCE6F00B93884 /* LocationServiceImplementation.swift */; };
 		9EFE7BBF1DFDC13F00B93884 /* AccuracyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */; };
+		9EFE7BC21DFDE59600B93884 /* TempoCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7BC11DFDE59600B93884 /* TempoCounter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9EFE7B991DFCCDCC00B93884 /* LocationServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationServiceDelegate.swift; path = Beacons/LocationServiceDelegate.swift; sourceTree = "<group>"; };
 		9EFE7B9B1DFCCE6F00B93884 /* LocationServiceImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationServiceImplementation.swift; path = Beacons/LocationServiceImplementation.swift; sourceTree = "<group>"; };
 		9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccuracyScene.swift; path = AccuracyScene/AccuracyScene.swift; sourceTree = "<group>"; };
+		9EFE7BC11DFDE59600B93884 /* TempoCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TempoCounter.swift; path = TempoCounter/TempoCounter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		9EFE7B811DFCC57B00B93884 /* ios-multiple-beacon-finder */ = {
 			isa = PBXGroup;
 			children = (
+				9EFE7BC01DFDE57C00B93884 /* TempoCounter */,
 				9EFE7BBD1DFDC12000B93884 /* AccuracyScene */,
 				9EFE7B941DFCC7DF00B93884 /* Beacons */,
 				9EFE7B821DFCC57B00B93884 /* AppDelegate.swift */,
@@ -93,6 +96,14 @@
 				9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */,
 			);
 			name = AccuracyScene;
+			sourceTree = "<group>";
+		};
+		9EFE7BC01DFDE57C00B93884 /* TempoCounter */ = {
+			isa = PBXGroup;
+			children = (
+				9EFE7BC11DFDE59600B93884 /* TempoCounter.swift */,
+			);
+			name = TempoCounter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			files = (
 				9EFE7B851DFCC57B00B93884 /* ViewController.swift in Sources */,
 				9EFE7BBF1DFDC13F00B93884 /* AccuracyScene.swift in Sources */,
+				9EFE7BC21DFDE59600B93884 /* TempoCounter.swift in Sources */,
 				9EFE7B9A1DFCCDCC00B93884 /* LocationServiceDelegate.swift in Sources */,
 				9EFE7B831DFCC57B00B93884 /* AppDelegate.swift in Sources */,
 				9EFE7B981DFCCBB000B93884 /* LocationService.swift in Sources */,
