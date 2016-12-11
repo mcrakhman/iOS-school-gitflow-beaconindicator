@@ -18,6 +18,8 @@
 		9EFE7B9C1DFCCE6F00B93884 /* LocationServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7B9B1DFCCE6F00B93884 /* LocationServiceImplementation.swift */; };
 		9EFE7BBF1DFDC13F00B93884 /* AccuracyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */; };
 		9EFE7BC21DFDE59600B93884 /* TempoCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7BC11DFDE59600B93884 /* TempoCounter.swift */; };
+		9EFE7BC51DFDE94F00B93884 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE7BC41DFDE94F00B93884 /* AudioEngine.swift */; };
+		9EFE7BC71DFDEA9C00B93884 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE7BC61DFDEA9C00B93884 /* beep.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		9EFE7B9B1DFCCE6F00B93884 /* LocationServiceImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationServiceImplementation.swift; path = Beacons/LocationServiceImplementation.swift; sourceTree = "<group>"; };
 		9EFE7BBE1DFDC13F00B93884 /* AccuracyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccuracyScene.swift; path = AccuracyScene/AccuracyScene.swift; sourceTree = "<group>"; };
 		9EFE7BC11DFDE59600B93884 /* TempoCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TempoCounter.swift; path = TempoCounter/TempoCounter.swift; sourceTree = "<group>"; };
+		9EFE7BC41DFDE94F00B93884 /* AudioEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioEngine.swift; path = AudioEngine/AudioEngine.swift; sourceTree = "<group>"; };
+		9EFE7BC61DFDEA9C00B93884 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 		9EFE7B811DFCC57B00B93884 /* ios-multiple-beacon-finder */ = {
 			isa = PBXGroup;
 			children = (
+				9EFE7BC61DFDEA9C00B93884 /* beep.wav */,
+				9EFE7BC31DFDE93F00B93884 /* AudioEngine */,
 				9EFE7BC01DFDE57C00B93884 /* TempoCounter */,
 				9EFE7BBD1DFDC12000B93884 /* AccuracyScene */,
 				9EFE7B941DFCC7DF00B93884 /* Beacons */,
@@ -104,6 +110,14 @@
 				9EFE7BC11DFDE59600B93884 /* TempoCounter.swift */,
 			);
 			name = TempoCounter;
+			sourceTree = "<group>";
+		};
+		9EFE7BC31DFDE93F00B93884 /* AudioEngine */ = {
+			isa = PBXGroup;
+			children = (
+				9EFE7BC41DFDE94F00B93884 /* AudioEngine.swift */,
+			);
+			name = AudioEngine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFE7BC71DFDEA9C00B93884 /* beep.wav in Resources */,
 				9EFE7B8D1DFCC57B00B93884 /* LaunchScreen.storyboard in Resources */,
 				9EFE7B8A1DFCC57B00B93884 /* Assets.xcassets in Resources */,
 				9EFE7B881DFCC57B00B93884 /* Main.storyboard in Resources */,
@@ -179,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFE7BC51DFDE94F00B93884 /* AudioEngine.swift in Sources */,
 				9EFE7B851DFCC57B00B93884 /* ViewController.swift in Sources */,
 				9EFE7BBF1DFDC13F00B93884 /* AccuracyScene.swift in Sources */,
 				9EFE7BC21DFDE59600B93884 /* TempoCounter.swift in Sources */,
