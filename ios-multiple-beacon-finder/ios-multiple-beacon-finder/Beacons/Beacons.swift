@@ -11,7 +11,7 @@ import CoreLocation
 
 struct Beacon {
     let name: String
-    let uuid: NSUUID
+    let uuid: UUID
     let majorValue: CLBeaconMajorValue
     let minorValue: CLBeaconMinorValue
 }
