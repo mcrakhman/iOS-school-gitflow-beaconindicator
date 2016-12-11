@@ -7,19 +7,64 @@
 //
 
 import UIKit
+import SceneKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SCNSceneRendererDelegate {
 
+    @IBOutlet weak var sceneView: SCNView!
+    var scene: SCNScene!
+    var cameraNode: SCNNode!
+    
+    lazy var sphere: SCNSphere = {
+        let hydrogenAtom = SCNSphere(radius: 1.20)
+        hydrogenAtom.firstMaterial!.diffuse.contents = UIColor.green
+        return hydrogenAtom
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        setupView()
+        setupScene()
+        setupCamera()
+        spawnShape()
+        
+        sceneView.delegate = self
+        sceneView.isPlaying = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
+    func setupView() {
+        sceneView.allowsCameraControl = true
+        sceneView.autoenablesDefaultLighting = true
+    }
+    
+    func setupScene() {
+        scene = SCNScene()
+        sceneView.scene = scene
+    }
+    
+    func setupCamera() {
+        cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 25)
+        scene.rootNode.addChildNode(cameraNode)
+    }
+    
+    func spawnShape() {
+        let geometryNode = SCNNode(geometry: sphere)
+        geometryNode.position = SCNVector3(x: 0, y: 0, z: 10)
+        scene.rootNode.addChildNode(geometryNode)
+    }
+    
+    // MARK: SCNSceneRendererDelegate
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        sphere.radius = CGFloat(arc4random_uniform(9) + 1)
+        print(sphere.radius)
+    }
 }
 
